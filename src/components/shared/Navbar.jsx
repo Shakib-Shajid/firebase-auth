@@ -6,10 +6,10 @@ const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logout()
-        .then(()=>{})
-        .catch(error=>console.log(error))
+            .then(() => { })
+            .catch(error => console.log(error))
     }
     return (
         <div>
@@ -36,6 +36,7 @@ const Navbar = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/login">Login</Link></li>
                             <li><Link to="/signup">Sign Up</Link></li>
+                            <li><Link to="/secret">Secret</Link></li>
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">Firebase</a>
@@ -45,6 +46,7 @@ const Navbar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">Sign Up</Link></li>
+                        <li><Link to="/secret">Secret</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
