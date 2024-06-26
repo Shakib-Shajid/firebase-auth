@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
@@ -8,6 +8,13 @@ const Login = () => {
     // use context
     const { signIn } = useContext(AuthContext)
 
+    // redirect in secret page
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
+
+    // find the location where it comes from 
+    const from = location.state?.from?.pathname || '/';
 
 
     // access the form info
@@ -21,6 +28,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                // go to coming location
+                navigate(from, {replace:true})
             })
     }
 
